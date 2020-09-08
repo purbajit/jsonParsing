@@ -56,13 +56,6 @@ class MyHomePage extends StatelessWidget {
                           DataRow(
                               // List<DataCell> cells is required in every row
                               cells: [
-                                // DataCell((data.verified)
-                                //     ? Icon(
-                                //         Icons.verified_user,
-                                //         color: Colors.green,
-                                //       )
-                                //     : Icon(Icons.cancel, color: Colors.red)),
-                                // I want to display a green color icon when user is verified and red when unverified
                                 DataCell(Text(data.drugId)),
                                 DataCell(Text(data.drugName)),
                                 DataCell(Text(data.programmeId)),
