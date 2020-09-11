@@ -24,6 +24,7 @@ dependencies:
   json_annotation: ^3.0.1
   flutter:
     sdk: flutter
+  splashscreen: ^1.2.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -49,6 +50,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/raw/{}mJson.json
+    - assets/giphy.gif
 
 
   # To add assets to your application, add an assets section, like this:
