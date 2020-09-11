@@ -299,7 +299,8 @@ class MyHomePage extends StatelessWidget {
                                           DataCell(Text(data.programmeName)),
                                           DataCell(
                                               Text(data.packingDescription)),
-                                          DataCell(Text(data.availableQty)),
+                                          DataCell(Text(
+                                              data.availableQty.toString())),
                                         ]))
                                 .toList(),
                           ),
