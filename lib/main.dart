@@ -21,7 +21,7 @@ class _MyAppState extends State<MyApp> {
       backgroundColor: Colors.black,
       image: Image.asset('assets/giphy.gif'),
       loaderColor: Colors.white,
-      photoSize: 260.0,
+      photoSize: 200.0,
       navigateAfterSeconds: MyHomePage(),
     );
   }
