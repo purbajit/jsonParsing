@@ -4,18 +4,31 @@ import 'package:provider/provider.dart';
 import 'package:jsonparsing/pages/dropdown_formfield.dart';
 import 'package:jsonparsing/pages/maindrawer.dart';
 
-// ignore: must_be_immutable
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
+  MyHomePage({Key key}) : super(key: key);
+
+  @override
+  _MyHomePage createState() => _MyHomePage();
+}
+
+class _MyHomePage extends State<MyHomePage> {
   String programList;
+  String storeList;
+  String indentList;
   String drugList;
   String programListResult;
   final formKey = new GlobalKey<FormState>();
 
   void initState() {
-    initState();
-    programList = '';
-    programListResult = '';
-    drugList = '';
+    super.initState();
+
+    setState(() {
+      programList = '';
+      storeList = '';
+      indentList = '';
+      drugList = '';
+      programListResult = '';
+    });
   }
 
   // ignore: unused_element
@@ -54,15 +67,15 @@ class MyHomePage extends StatelessWidget {
                 child: DropDownFormField(
                   titleText: "Your Store",
                   hintText: "Please choose one",
-                  value: programList,
+                  value: this.storeList,
                   onSaved: (value) {
                     setState(() {
-                      programList = value;
+                      this.storeList = value;
                     });
                   },
                   onChanged: (value) {
                     setState(() {
-                      programList = value;
+                      this.storeList = value;
                     });
                   },
                   dataSource: [
@@ -78,43 +91,17 @@ class MyHomePage extends StatelessWidget {
               Container(
                 padding: EdgeInsets.all(16),
                 child: DropDownFormField(
-                  titleText: "Parent Store",
-                  hintText: "Please choose one",
-                  value: programList,
-                  onSaved: (value) {
-                    setState(() {
-                      programList = value;
-                    });
-                  },
-                  onChanged: (value) {
-                    setState(() {
-                      programList = value;
-                    });
-                  },
-                  dataSource: [
-                    {
-                      "display": "SWH HQ MIZORAM",
-                      "value": "SWH HQ MIZORAM",
-                    },
-                  ],
-                  textField: "display",
-                  valueField: "value",
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.all(16),
-                child: DropDownFormField(
                   titleText: 'Office Indent/Letter No',
                   hintText: 'Please choose one',
-                  value: programList,
+                  value: indentList,
                   onSaved: (value) {
                     setState(() {
-                      programList = value;
+                      this.indentList = value;
                     });
                   },
                   onChanged: (value) {
                     setState(() {
-                      programList = value;
+                      this.indentList = value;
                     });
                   },
                   dataSource: [
@@ -132,15 +119,15 @@ class MyHomePage extends StatelessWidget {
                 child: DropDownFormField(
                   titleText: "Select Program*",
                   hintText: "Please choose one",
-                  value: programList,
+                  value: this.programList,
                   onSaved: (value) {
                     setState(() {
-                      programList = value;
+                      this.programList = value;
                     });
                   },
                   onChanged: (value) {
                     setState(() {
-                      programList = value;
+                      this.programList = value;
                     });
                   },
                   dataSource: [
@@ -223,32 +210,32 @@ class MyHomePage extends StatelessWidget {
                   valueField: "value",
                 ),
               ),
-              // Container(
-              //   padding: EdgeInsets.all(16),
-              //   child: DropDownFormField(
-              //     titleText: 'DrugList*',
-              //     hintText: 'Please choose one',
-              //     value: drugList,
-              //     onSaved: (value) {
-              //       setState(() {
-              //         drugList = value;
-              //       });
-              //     },
-              //     onChanged: (value) {
-              //       setState(() {
-              //         drugList = value;
-              //       });
-              //     },
-              //     dataSource: [
-              //       {
-              //         "display": " ",
-              //         "value": "",
-              //       },
-              //     ],
-              //     textField: "display",
-              //     valueField: "value",
-              //   ),
-              // ),
+              Container(
+                padding: EdgeInsets.all(16),
+                child: DropDownFormField(
+                  titleText: 'DrugList*',
+                  hintText: 'Please choose one',
+                  value: drugList,
+                  onSaved: (value) {
+                    setState(() {
+                      this.drugList = value;
+                    });
+                  },
+                  onChanged: (value) {
+                    setState(() {
+                      this.drugList = value;
+                    });
+                  },
+                  dataSource: [
+                    {
+                      "display": "drug1",
+                      "value": "drug1",
+                    },
+                  ],
+                  textField: "display",
+                  valueField: "value",
+                ),
+              ),
               Container(
                 padding: EdgeInsets.all(16),
                 child: ChangeNotifierProvider<MyHomePageProvider>(
@@ -317,6 +304,4 @@ class MyHomePage extends StatelessWidget {
       ),
     );
   }
-
-  void setState(Null Function() param0) {}
 }
